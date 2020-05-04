@@ -60,7 +60,7 @@ else
 	WARN_FLAGS = -Wno-write-strings -Wno-multichar
 endif
 
-WARN_FLAGS += -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-sign-compare -Wno-reorder -Wno-invalid-offsetof -Wno-float-equal -Werror=return-type -fdiagnostics-show-option -Wformat -Wformat-security
+WARN_FLAGS += -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-sign-compare -Wno-reorder -Wno-invalid-offsetof -Wno-float-equal -Werror=return-type -fdiagnostics-show-option -Wformat -Wformat-security -Wno-narrowing
 
 
 ifeq ($(OS),Linux)
@@ -109,7 +109,7 @@ ifeq ($(OS),Linux)
 	CCACHE := $(SRCROOT)/devtools/bin/linux/ccache
 
 	ifeq ($(origin GCC_VER), undefined)
-	GCC_VER=-4.6
+	GCC_VER=-4.8
 	endif
 	ifeq ($(origin AR), default)
 		AR = $(VALVE_BINDIR)ar crs
