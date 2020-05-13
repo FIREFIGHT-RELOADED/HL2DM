@@ -79,6 +79,7 @@ void CServerNetworkProperty::AttachEdict( edict_t *pRequiredEdict )
 	// see if there is an edict allocated for it, otherwise get one from the engine
 	if ( !pRequiredEdict )
 	{
+		engine->AllowImmediateEdictReuse();
 		pRequiredEdict = engine->CreateEdict();
 	}
 
