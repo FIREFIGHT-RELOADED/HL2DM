@@ -1933,6 +1933,8 @@ BEGIN_DATADESC_NO_BASE( CBaseEntity )
 	DEFINE_INPUTFUNC( FIELD_STRING, "FireUser3", InputFireUser3 ),
 	DEFINE_INPUTFUNC( FIELD_STRING, "FireUser4", InputFireUser4 ),
 
+	DEFINE_INPUTFUNC(FIELD_VOID, "RemoveImmediate", InputRemoveImmediate),
+
 	DEFINE_OUTPUT( m_OnUser1, "OnUser1" ),
 	DEFINE_OUTPUT( m_OnUser2, "OnUser2" ),
 	DEFINE_OUTPUT( m_OnUser3, "OnUser3" ),
@@ -6509,6 +6511,11 @@ void CBaseEntity::InputFireUser4( inputdata_t& inputdata )
 	m_OnUser4.FireOutput( inputdata.pActivator, this );
 }
 
+void CBaseEntity::InputRemoveImmediate(inputdata_t& inputdata)
+{
+	UpdateOnRemove();
+	delete this;
+}
 
 //-----------------------------------------------------------------------------
 // Purpose: 
